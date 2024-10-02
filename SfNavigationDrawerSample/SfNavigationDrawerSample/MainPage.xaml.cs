@@ -7,10 +7,18 @@ namespace SfNavigationDrawerSample
 {
     public partial class MainPage : ContentPage
     {
-        [Obsolete]
+        private Inbox inbox;
+        private Remainders remainders;
+        private ToDoList toDoList;
+        private Contacts contacts;
+        
         public MainPage()
         {
             InitializeComponent();
+            inbox = new Inbox();
+            remainders = new Remainders();
+            contacts = new Contacts();
+            toDoList = new ToDoList();
             Initialize();           
         }
         private void OnHandleClicked(object sender, TappedEventArgs e)
@@ -38,7 +46,7 @@ namespace SfNavigationDrawerSample
         [Obsolete]
         private void Initialize()
         {
-            AnimateContentChange(new Inbox().Content);
+            AnimateContentChange(inbox.Content);
             headerLabel.Text = "Inbox";
             inboxEffectsBorder.Background = Color.FromHex("#f2daf7");
             inboxTitle.FontAttributes = FontAttributes.Bold;
@@ -63,7 +71,7 @@ namespace SfNavigationDrawerSample
             inboxEffectsBorder.Background = Color.FromHex("#f2daf7");
             inboxTitle.FontAttributes = FontAttributes.Bold;
             this.headerLabel.Text = "Inbox";     
-            AnimateContentChange(new Inbox().Content);
+            AnimateContentChange(inbox.Content);
             this.navigationDrawer!.ToggleDrawer();
         }
 
@@ -74,7 +82,7 @@ namespace SfNavigationDrawerSample
             contactsEffectsBorder.Background = Color.FromHex("#f2daf7");
             contactsTitle.FontAttributes = FontAttributes.Bold;
             this.headerLabel.Text = "Contacts";          
-            AnimateContentChange(new Contacts().Content);
+            AnimateContentChange(contacts.Content);
             this.navigationDrawer!.ToggleDrawer();
         }
 
@@ -85,7 +93,7 @@ namespace SfNavigationDrawerSample
             remaindersEffectsBorder.Background = Color.FromHex("#f2daf7");
             remaindersTitle.FontAttributes = FontAttributes.Bold;
             this.headerLabel.Text = "Remainders";
-            AnimateContentChange(new Remainders().Content);
+            AnimateContentChange(remainders.Content);
             this.navigationDrawer!.ToggleDrawer();
         }
 
@@ -96,7 +104,7 @@ namespace SfNavigationDrawerSample
             toDoListEffectsBorder.Background = Color.FromHex("#f2daf7");
             toDolistTitle.FontAttributes = FontAttributes.Bold;
             this.headerLabel.Text = "ToDoList";
-            AnimateContentChange(new ToDoList().Content);
+            AnimateContentChange(toDoList.Content);
             this.navigationDrawer!.ToggleDrawer();
         }
     }
